@@ -1,0 +1,242 @@
+body {
+    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+body, html {
+    height: calc(100% -2em);
+    margin: 0;
+}
+
+aside {
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: auto 40px;
+    padding: 2em;
+    height: 100%;
+}
+
+#hamburger {
+    width: 40px;
+    cursor: pointer;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#avatar {
+    display: none;
+}
+
+nav{
+    background: #fff;
+}
+
+.active {
+    position: absolute;
+    display: block !important;
+    background: #fff;
+    width: 50%;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.menu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    display: block;
+    padding: 1.5em 3em;
+    background-color: rgba(255, 228, 196, .35);
+    color: black;
+}
+
+.current {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+
+.menu li a:hover:not(.current) {
+    background-color: #555;
+    color: white;
+  }
+
+main {
+    background: #fff;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+.cta {
+    display: block;
+    color: #fff;
+    background: #009efd;
+    padding: 8px 50px;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 2em 0;
+}
+
+section {
+    min-height: 100%;
+    padding: 2% 8%;
+    background-color: #149fc9;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+section:nth-child(even) {
+    background-color: #16b1e0;
+  }
+
+.scroll-section {
+    height: 100%;
+    overflow: scroll;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+  
+section h1{
+    text-align: center;
+  }
+  
+.project {
+      margin-bottom: 4em; 
+  }
+
+.project h2 {
+      font-weight: bold;
+      font-size: 28px;
+      margin-bottom: 5px;
+  }
+
+.project h3 {
+    font-weight: 530;
+    font-size: 24px;
+    margin-bottom: 5px; 
+}
+
+.project a {
+    margin-bottom: 10px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    body {
+        display: grid;
+        grid-template-columns: 20% auto; 
+    }
+
+    #hamburger{
+        display: none;
+    }
+
+    aside {
+        background-color: wheat;
+        grid-template-columns: auto;
+        grid-template-rows: 20% auto;
+        padding: 0;
+        position: fixed;
+        width: 20%;
+    }
+
+    .bigscreen {
+        position: absolute;
+        display: block !important;
+        background: #fff;
+        width: 50%;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
+
+    main {
+        padding: 0 2px;
+        background: white;
+        margin-left: 18%;
+        position: absolute;
+        width: 81.5%;
+        overflow: hidden;
+    }
+
+    #avatar {
+        border-radius: 50%;
+        background: white;
+        width: 80px;
+        height: 80px;
+        margin: 2em auto 1em auto;
+        display: block;
+    }
+
+    figcaption {
+        text-align: center;
+        color: black;
+        font-size: 150%;
+        margin-top: 20px;
+        margin-bottom: 200px;
+    }
+
+    ul {
+        display: block;
+        margin-top: 2em;
+        position: relative !important;
+        background: none !important;
+        width: 100% !important;
+    }
+
+    nav {
+        background: none;
+    }
+
+    .menu li a:hover:not(.current) {
+        background-color: #555;
+        color: white;
+      }
+
+    .cta {
+        display: inline-block;
+        font-size: 1.3em;
+        padding: .8em 3em;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-top: 2em;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+
+}

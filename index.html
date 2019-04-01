@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Khari Portfolio</title>
+
+
+  <link rel="icon" href="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="data.js"></script>
+  <script src="index.js"></script>
+
+  <link rel="stylesheet" href="main.css">
+</head>
+    <body>
+        <aside>
+            <figure>
+            <img id="avatar" src="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" 
+                alt="Logo">
+            <figcaption>Whats next?</figcaption>
+            </figure>
+            <img id="hamburger" src="images/Hamburger_icon.svg.png">
+            <nav> 
+                <ul class="menu bigscreen">
+                    <li class="current"><a href="#music">Music</a></li>
+                    <li class="port"><a href="#shows">Shows</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#authors">Authors</a></li>
+                    <li><a href="#games">Games</a></li>
+                </ul>
+            </nav>
+            
+        </aside>
+
+        <main>
+            <div class="scroll-section">
+                <section id="music">
+                    <h1>Music</h1>
+
+                    <form id="music-form">
+                        <label for="music-taste">Tell us about your music taste</label>
+                        <input type="text" name="music-taste" id="js-music-taste" required>
+                        <input type="submit" value="add taste">
+                    </form>
+
+                    <div id="js-music-list">
+                        <ul id="music-results">
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+                
+            <div class="scroll-section">
+                    <section id="shows">
+                        <h1>Shows</h1>
+
+                        <form id="show-form">
+                            <label for="show-taste">Tell us about your music taste</label>
+                            <input type="text" name="show-taste" id="js-show-taste" required>
+                            <input type="submit" value="add taste">
+                        </form>
+
+                        <div id="js-show-list">
+                            <ul id="show-results">
+        
+                            </ul>
+                        </div>
+                    </section>
+            </div>
+
+            <div class="scroll-section">
+                <section id="movies">
+                     <h1>Movies</h1>
+                     <form id="movie-form">
+                        <label for="movie-taste">Tell us about your movie taste</label>
+                        <input type="text" name="movie-taste" id="js-movie-taste" required>
+                        <input type="submit" value="add taste">
+                    </form>
+
+                    <div id="js-movie-list">
+                        <ul id="movie-results">
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="scroll-section">
+                <section id="books">
+                    <h1>Books</h1>
+
+                    <form id="book-form">
+                            <label for="book-taste">Tell us about your book selection</label>
+                            <input type="text" name="book-taste" id="js-book-taste" required>
+                            <input type="submit" value="add taste">
+                    </form>
+
+                    <div id="js-book-list">
+                        <ul id="book-results">
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="scroll-section">
+                <section id="authors">
+                    <h1>Authors</h1>
+
+                    <form id="author-form">
+                        <label for="author-taste">Tell us about your favorite authors</label>
+                        <input type="text" name="author-taste" id="js-author-taste" required>
+                        <input type="submit" value="add taste">
+                    </form>
+
+                    <div id="js-author-list">
+                        <ul id="author-results">
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="scroll-section">
+                <section id="games">
+                    <h1>Games</h1>
+
+                    <form id="game-form">
+                        <label for="game-taste">Tell us about your taste in video games</label>
+                        <input type="text" name="game-taste" id="js-game-taste" required>
+                        <input type="submit" value="add taste">
+                    </form>
+
+                    <div id="js-game-list">
+                        <ul id="game-results">
+
+                        </ul>
+                    </div>
+                </section>
+
+                
+            </div>
+
+        </main>
+    </body>
+</html>
