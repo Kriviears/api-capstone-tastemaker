@@ -146,7 +146,7 @@ function getBooks(params){
       
     success: function(response){
       console.log(response);
-      populate(response, '#book-results');
+      populateAlt(response, '#book-results');
     }
   });
         
@@ -189,7 +189,7 @@ function getAuthors(params){
       
     success: function(response){
       console.log(response);
-      populate(response, '#author-results');
+      populateAlt(response, '#author-results');
     }
   });
         
@@ -278,6 +278,66 @@ function generateHTML(item){
   return itemHTML;
 }
 
+function populateAlt(response, section){
+  for(let i=0; i<response.Similar.Results.length; i++){
+    $(section).append(generateHTMLAlt(response.Similar.Results[i]));
+  }
+}
+
+function generateHTMLAlt(item){
+  getCover(item.Name);
+  console.log(cover);
+  let thisCover = cover;
+  const itemHTML = `<h2>${item.Name}</h2>
+  <img alt="${item.Name}" src="${thisCover}"></ br>
+  <p>${item.wTeaser}</p>`;
+  return itemHTML;
+}
+
+
+function formatQueryParams(params){
+  const queryItems = Object.keys(params).map(key => 
+    `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);    
+  return queryItems.join('&');
+}
+
+
+let cover = 'initial value';
+
+
+function getCover(name){
+  const params = {
+    cx: '011351822505368343680:lpxwsruoxny',
+    key: 'AIzaSyAM35hc9FInCfrhcbkIqrkEFGM5YnzYUYU',
+    q: `${name} book`,
+    prettyPrint: true,
+    searchType: 'image',
+    num: 1
+  };
+  const queryString = formatQueryParams(params);
+  const url = 'https://www.googleapis.com/customsearch/v1?' + queryString;
+
+  //console.log(url);
+
+  fetch(url)
+    .then(response =>{
+      if (response.ok){
+        //console.log(response.json());
+        response.json()
+          .then(data =>{
+            console.log(data);
+            return data.items[0].image.thumbnailLink;
+          });
+      }
+      throw new Error(response.statusText);
+    })
+    //.then(responseJson =>  return responseJson;)
+    .catch(err =>{
+      console.log(err.message);
+      //$('.js-error-message').text(`Something went wrong: ${err.error.errors.message}: ${err.error.errors.reason}`);
+    });
+}
+
 
 /*_______________________________________________________ */
 
@@ -293,6 +353,14 @@ function navigate(){
   });
 }
 
+function menuToggle(){
+  $('#hamburger').on('click', function(event){
+    console.log('menu toggled');
+    event.preventDefault();
+    $('.menu').toggleClass('active', { direction: 'left' }, 1000);
+  });
+}
+
 
 $(function (){
   musicForm();
@@ -302,4 +370,5 @@ $(function (){
   authorsForm();
   gamesForm();
   navigate();
+  menuToggle();
 });

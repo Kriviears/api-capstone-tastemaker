@@ -3,7 +3,7 @@
 <head>
   <title>Khari Portfolio</title>
 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -24,8 +24,8 @@
             <img id="hamburger" src="images/Hamburger_icon.svg.png">
             <nav> 
                 <ul class="menu bigscreen">
-                    <li class="current"><a href="#music">Music</a></li>
-                    <li class="port"><a href="#shows">Shows</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#shows">Shows</a></li>
                     <li><a href="#movies">Movies</a></li>
                     <li><a href="#books">Books</a></li>
                     <li><a href="#authors">Authors</a></li>
@@ -36,6 +36,10 @@
         </aside>
 
         <main>
+            <div class="landing-page">
+                <h1>Welcome to the taste making app</h1>
+                <p>visit any of the sections and tell the app what you already like and we'll tell you what you might also enjoy</p>
+            </div>
             <div class="scroll-section">
                 <section id="music">
                     <h1>Music</h1>
@@ -98,6 +102,7 @@
                             <input type="text" name="book-taste" id="js-book-taste" required>
                             <input type="submit" value="add taste">
                     </form>
+                    <h2 class="js-error-message"></h2>
 
                     <div id="js-book-list">
                         <ul id="book-results">
@@ -116,6 +121,7 @@
                         <input type="text" name="author-taste" id="js-author-taste" required>
                         <input type="submit" value="add taste">
                     </form>
+                    <h2 class="js-error-message"></h2>
 
                     <div id="js-author-list">
                         <ul id="author-results">
