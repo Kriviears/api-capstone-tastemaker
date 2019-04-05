@@ -145,8 +145,9 @@ function getBooks(params){
     data: params,
       
     success: function(response){
-      console.log(response);
-      populateAlt(response, '#book-results');
+      for(let i=0; i<response.Similar.Results.length; i++){
+        getCover(response.Similar.Results[i], '#book-results');
+      }
     }
   });
         
@@ -189,7 +190,9 @@ function getAuthors(params){
       
     success: function(response){
       console.log(response);
-      populateAlt(response, '#author-results');
+      for(let i=0; i<response.Similar.Results.length; i++){
+        getCover(response.Similar.Results[i], '#author-results');
+      }
     }
   });
         
@@ -280,19 +283,20 @@ function generateHTML(item){
 
 function populateAlt(response, section){
   for(let i=0; i<response.Similar.Results.length; i++){
-    $(section).append(generateHTMLAlt(response.Similar.Results[i]));
+    $(section).append(getCover(response.Similar.Results[i]));
   }
 }
 
-function generateHTMLAlt(item){
-  getCover(item.Name);
-  console.log(cover);
-  let thisCover = cover;
-  const itemHTML = `<h2>${item.Name}</h2>
-  <img alt="${item.Name}" src="${thisCover}"></ br>
-  <p>${item.wTeaser}</p>`;
-  return itemHTML;
-}
+// function generateHTMLAlt(item){
+//   const cover = getCover(item.Name);
+//   console.log(cover);
+    
+
+//   const itemHTML = `<h2>${item.Name}</h2>
+//   <img alt="${item.Name}" src="${cover}"></ br>
+//   <p>${item.wTeaser}</p>`;
+//   return itemHTML;
+// }
 
 
 function formatQueryParams(params){
@@ -302,14 +306,12 @@ function formatQueryParams(params){
 }
 
 
-let cover = 'initial value';
 
-
-function getCover(name){
+function getCover(item, section){
   const params = {
     cx: '011351822505368343680:lpxwsruoxny',
     key: 'AIzaSyAM35hc9FInCfrhcbkIqrkEFGM5YnzYUYU',
-    q: `${name} book`,
+    q: `${item.Name} book`,
     prettyPrint: true,
     searchType: 'image',
     num: 1
@@ -319,22 +321,25 @@ function getCover(name){
 
   //console.log(url);
 
-  fetch(url)
-    .then(response =>{
-      if (response.ok){
-        //console.log(response.json());
-        response.json()
-          .then(data =>{
-            console.log(data);
-            return data.items[0].image.thumbnailLink;
-          });
-      }
-      throw new Error(response.statusText);
+
+  return fetch(url)
+    .then(response => {
+      if(response.ok) return response.json();
+      else throw new Error(response.statusText);
     })
-    //.then(responseJson =>  return responseJson;)
-    .catch(err =>{
+    .then(data => {
+      let cover = data.items[0].image.thumbnailLink;
+
+      const itemHTML = `<h2>${item.Name}</h2>
+        <img alt="${item.Name}" src="${cover}"></ br>
+        <p>${item.wTeaser}</p>`;
+      return itemHTML;
+    })
+    .then(webItem => {
+      $(section).append(webItem);
+    })
+    .catch(err => {
       console.log(err.message);
-      //$('.js-error-message').text(`Something went wrong: ${err.error.errors.message}: ${err.error.errors.reason}`);
     });
 }
 
