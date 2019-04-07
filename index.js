@@ -21,7 +21,6 @@ function getMusic(params){
       populate(response, '#music-results');
     }
   });
-    
 }
 
 function musicForm(){
@@ -63,7 +62,6 @@ function getShows(params){
       populate(response, '#show-results');
     }
   });
-      
 }
   
 function showsForm(){
@@ -105,8 +103,7 @@ function getMovies(params){
       console.log(response);
       populate(response, '#movie-results');
     }
-  });
-        
+  }); 
 }
     
 function moviesForm(){
@@ -150,7 +147,6 @@ function getBooks(params){
       }
     }
   });
-        
 }
     
 function booksForm(){
@@ -272,11 +268,11 @@ function populate(response, section){
 }
 
 function generateHTML(item){
-  const itemHTML = `<h2>${item.Name}</h2>
+  const itemHTML = `<div class="sugg"><h2>${item.Name}</h2>
     <iframe width="420" height="315"
         src="${item.yUrl}">
     </iframe></ br>
-    <p>${item.wTeaser}</p>`;
+    <p>${item.wTeaser}</p></div>`;
   console.log(itemHTML);
   return itemHTML;
 }
@@ -290,8 +286,6 @@ function populateAlt(response, section){
 // function generateHTMLAlt(item){
 //   const cover = getCover(item.Name);
 //   console.log(cover);
-    
-
 //   const itemHTML = `<h2>${item.Name}</h2>
 //   <img alt="${item.Name}" src="${cover}"></ br>
 //   <p>${item.wTeaser}</p>`;
@@ -330,9 +324,9 @@ function getCover(item, section){
     .then(data => {
       let cover = data.items[0].image.thumbnailLink;
 
-      const itemHTML = `<h2>${item.Name}</h2>
+      const itemHTML = `<div class="sugg"><h2>${item.Name}</h2>
         <img alt="${item.Name}" src="${cover}"></ br>
-        <p>${item.wTeaser}</p>`;
+        <p>${item.wTeaser}</p></div>`;
       return itemHTML;
     })
     .then(webItem => {

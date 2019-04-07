@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Khari Portfolio</title>
+  <title>Tastemaker app</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="data.js"></script>
-  <script src="index.js"></script>
 
   <link rel="stylesheet" href="main.css">
 </head>
@@ -37,18 +33,22 @@
 
         <main>
             <div class="landing-page">
-                <h1>Welcome to the taste making app</h1>
-                <p>visit any of the sections and tell the app what you already like and we'll tell you what you might also enjoy</p>
+                <div class="prompt">
+                    <h1>Welcome to the taste making app</h1>
+                    <p>visit any of the sections and tell the app what you already like and we'll tell you what you might also enjoy</p>
+                </div>
             </div>
             <div class="scroll-section">
                 <section id="music">
                     <h1>Music</h1>
 
+                    <div class="prompt">
                     <form id="music-form">
-                        <label for="music-taste">Tell us about your music taste</label>
-                        <input type="text" name="music-taste" placeholder="Artist eg.Bruno or ParkwayDrive" id="js-music-taste" required>
+                        <label for="music-taste">Tell us about your music taste</label></br>
+                        <input type="text" name="music-taste" placeholder="Artist eg.Bruno Mars" id="js-music-taste" required></br>
                         <input type="submit" value="add taste">
                     </form>
+                    </div>
 
                     <div id="js-music-list">
                         <ul id="music-results">
@@ -62,11 +62,13 @@
                     <section id="shows">
                         <h1>Shows</h1>
 
+                        <div class="prompt">
                         <form id="show-form">
                             <label for="show-taste">Tell us the shows you like</label>
                             <input type="text" name="show-taste" placeholder="eg.Gotham or Game of Thrones" id="js-show-taste" required>
                             <input type="submit" value="add taste">
                         </form>
+                        </div>
 
                         <div id="js-show-list">
                             <ul id="show-results">
@@ -79,11 +81,14 @@
             <div class="scroll-section">
                 <section id="movies">
                      <h1>Movies</h1>
+
+                     <div class="prompt">
                      <form id="movie-form">
                         <label for="movie-taste">Tell us about your movie taste</label>
                         <input type="text" name="movie-taste" placeholder="eg.Captian America or Harry Potter" id="js-movie-taste" required>
                         <input type="submit" value="add taste">
                     </form>
+                    </div>
 
                     <div id="js-movie-list">
                         <ul id="movie-results">
@@ -97,11 +102,13 @@
                 <section id="books">
                     <h1>Books</h1>
 
+                    <div class="prompt">
                     <form id="book-form">
                             <label for="book-taste">Tell us about your book selection</label>
                             <input type="text" name="book-taste" placeholder="book keyword eg.Harry Potter" id="js-book-taste" required>
                             <input type="submit" value="add taste">
                     </form>
+                    </div>
                     <h2 class="js-error-message"></h2>
 
                     <div id="js-book-list">
@@ -116,11 +123,13 @@
                 <section id="authors">
                     <h1>Authors</h1>
 
+                    <div class="prompt">
                     <form id="author-form">
                         <label for="author-taste">Tell us about your favorite authors</label>
                         <input type="text" name="author-taste" placeholder="author keyword eg.Tolkien" id="js-author-taste" required>
                         <input type="submit" value="add taste">
                     </form>
+                    </div>
                     <h2 class="js-error-message"></h2>
 
                     <div id="js-author-list">
@@ -135,11 +144,13 @@
                 <section id="games">
                     <h1>Games</h1>
 
+                    <div class="prompt">
                     <form id="game-form">
                         <label for="game-taste">Tell us about your taste in video games</label>
                         <input type="text" name="game-taste" placeholder="game keyword eg. legends" id="js-game-taste" required>
                         <input type="submit" value="add taste">
                     </form>
+                    </div>
 
                     <div id="js-game-list">
                         <ul id="game-results">
@@ -152,5 +163,9 @@
             </div>
 
         </main>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="data.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
