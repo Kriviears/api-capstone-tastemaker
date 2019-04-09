@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="main.css">
 </head>
     <body>
+        <!-- While this is visually off to the side, semantically, this is not complementary content. This is more of a header than an aside.-->
         <aside>
             <figure>
             <img id="avatar" src="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" 
@@ -32,16 +33,18 @@
         </aside>
 
         <main>
+            <!-- This can be a section too, just like the others. -->
             <div class="landing-page">
                 <div class="prompt">
                     <h1>Welcome to the taste making app</h1>
                     <p>visit any of the sections and tell the app what you already like and we'll tell you what you might also enjoy</p>
                 </div>
             </div>
+            <!-- Can you accomplish the same goal without having this wrapping div in all your sections? -->
             <div class="scroll-section">
                 <section id="music">
                     <h1>Music</h1>
-
+                    <!-- Can you accomplish the same goal without the wrapping div? I don't see any purpose other than to wrap.-->
                     <div class="prompt">
                     <form id="music-form">
                         <label for="music-taste">Tell us about your music taste</label></br>
@@ -49,8 +52,10 @@
                         <input type="submit" value="add taste">
                     </form>
                     </div>
-
+                    <!-- Can you accomplish the same goal without the wrapping div? I don't see any purpose other than to wrap.-->
                     <div id="js-music-list">
+                        <!-- Since this container has dynamic content, make sure screen readers have access to that content when the user submits the form.
+                             Look up aria-live if you haven't already implemented it before. -->
                         <ul id="music-results">
 
                         </ul>

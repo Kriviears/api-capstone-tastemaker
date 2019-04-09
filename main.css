@@ -59,6 +59,9 @@ nav{
     padding: 0;
 }
 
+/* Try do devise a system that enables you to style items directly.
+   Two levels is probably the deepest you should go as to avoid specificity nightmares. 
+   Does .menu a work? */
 .menu li a {
     text-decoration: none;
     text-transform: uppercase;
@@ -156,13 +159,16 @@ form {
 	border-radius:.25em;
 	background:transparent;
 	transition:all .100s;
-	
+    
+    /* This is Sass syntax. This doesn't actually work in plain CSS */
+    /* That said, when you remove focus styles, you should replace them with different styles for people who don't use a mouse or trackpad ;) */
 	&:focus{
 		outline:none;
 		color:rgba(255,255,255,.75);
 		border-color:rgba(255,255,255,.75);
 	}
-	
+    
+    /* This is Sass syntax. This doesn't actually work in plain CSS */
 	&.keyup {
 		color:white;
 		border-color:white;
