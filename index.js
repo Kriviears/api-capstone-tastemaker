@@ -89,7 +89,7 @@ function showsForm(){
 /*______________________________________________________
                         MOVIES TAB
 ________________________________________________________*/
-function getMovies(params){
+function getSugg(params, section){
   $.ajax({
     url: baseUrl,
       
@@ -101,7 +101,7 @@ function getMovies(params){
       
     success: function(response){
       console.log(response);
-      populate(response, '#movie-results');
+      populate(response, section);
     }
   }); 
 }
@@ -114,6 +114,7 @@ function moviesForm(){
     taste.movies.push(newTaste);
     
     console.log(taste.movies.join(','));
+    const section = '#movie-results';
     
     const params = {
       q: taste.movies.join(','),
@@ -124,7 +125,7 @@ function moviesForm(){
       k: key
     };
     
-    getMovies(params);
+    getSugg(params, section);
   });
 }
 
@@ -262,7 +263,12 @@ function gamesForm(){
                         HTML GENERATION
 ________________________________________________________*/
 function populate(response, section){
-  for(let i=0; i<response.Similar.Results.length; i++){
+  $(section).empty();
+  if(!response.Similar.Results.length){
+    $(section).append('<h1>No results found</h1>');
+    
+  }
+  else for(let i=0; i<response.Similar.Results.length; i++){
     $(section).append(generateHTML(response.Similar.Results[i]));
   }
 }

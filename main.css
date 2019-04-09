@@ -101,7 +101,7 @@ p {
     background-image: url("https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg?cs=srgb&dl=jazz-musical-instrument-sax-164936.jpg&fm=jpg");
     text-align: center;
     overflow: hidden;
-    color: brown;
+    color: #8e5151;
     text-shadow: 2px 2px #0f0e0e;
 }
 
@@ -126,7 +126,7 @@ section:nth-child(even) {
 }
 
 .prompt {
-    background: #555;
+    background: #621c62e3;
     padding: 1px;
     border-radius: 10px;
     border-style: double;
@@ -148,7 +148,7 @@ form {
   }
 
   input[type=text] {
-      
+    width: 95%;
 	border:2px solid rgba(255,255,255,.5);
 	font-size:1.75em;
 	padding:.25em .5em .3125em;
@@ -213,7 +213,7 @@ section h1{
 
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 876px) {
     body {
         display: grid;
         grid-template-columns: 20% auto; 
@@ -230,6 +230,7 @@ section h1{
         padding: 0;
         position: fixed;
         width: 20%;
+        z-index: 1;
     }
 
     .bigscreen {
