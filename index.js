@@ -20,6 +20,7 @@ function getMusic(params){
       console.log(response);
       populate(response, '#music-results');
     }
+    // Add an error callback too, so you can do something on error.
   });
 }
 
@@ -268,8 +269,9 @@ function populate(response, section){
 }
 
 function generateHTML(item){
+  // The way you've defined your iFrame makes it so the iFrame spans the width of a mobile device.
   const itemHTML = `<div class="sugg"><h2>${item.Name}</h2>
-    <iframe width="420" height="315"
+    <iframe width="420" height="315" 
         src="${item.yUrl}">
     </iframe></ br>
     <p>${item.wTeaser}</p></div>`;
@@ -340,6 +342,7 @@ function getCover(item, section){
 
 /*_______________________________________________________ */
 
+// If you can, try to do this with HTML and CSS only.
 function navigate(){
   $('.menu').on('click', 'li', function(event){
     console.log('\'navigate\' ran');
