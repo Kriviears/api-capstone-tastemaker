@@ -6,22 +6,6 @@ const key = '333241-KhariRiv-IRPUEHGK';
 /*______________________________________________________
                         MUSIC TAB
 ________________________________________________________*/
-function getMusic(params){
-  $.ajax({
-    url: baseUrl,
-  
-    jsonp: 'callback',
-  
-    dataType: 'jsonp',
-  
-    data: params,
-  
-    success: function(response){
-      console.log(response);
-      populate(response, '#music-results');
-    }
-  });
-}
 
 function musicForm(){
   $('#music-form').submit(event =>{
@@ -32,6 +16,7 @@ function musicForm(){
 
     console.log(taste.music.join(','));
 
+    const section = '#music-results';
     const params = {
       q: taste.music.join(','),
       type: 'music',
@@ -41,28 +26,12 @@ function musicForm(){
       k: key
     };
 
-    getMusic(params);
+    getSugg(params, section);
   });
 }
 /*______________________________________________________
                         SHOWS TAB
 ________________________________________________________*/
-function getShows(params){
-  $.ajax({
-    url: baseUrl,
-    
-    jsonp: 'callback',
-    
-    dataType: 'jsonp',
-    
-    data: params,
-    
-    success: function(response){
-      console.log(response);
-      populate(response, '#show-results');
-    }
-  });
-}
   
 function showsForm(){
   $('#show-form').submit(event =>{
@@ -73,6 +42,7 @@ function showsForm(){
   
     console.log(taste.shows.join(','));
   
+    const section = '#show-results';
     const params = {
       q: taste.shows.join(','),
       type: 'shows',
@@ -82,12 +52,122 @@ function showsForm(){
       k: key
     };
   
-    getShows(params);
+    getSugg(params, section);
   });
 }
 
 /*______________________________________________________
                         MOVIES TAB
+________________________________________________________*/
+    
+function moviesForm(){
+  $('#movie-form').submit(event =>{
+    event.preventDefault();
+    console.log('movies submitted');
+    const newTaste = $('#js-movie-taste').val();
+    taste.movies.push(newTaste);
+    
+    console.log(taste.movies.join(','));
+
+    const section = '#movie-results';
+    const params = {
+      q: taste.movies.join(','),
+      type: 'movies',
+      info: 1,
+      limit: 5,
+      format: 'json',
+      k: key
+    };
+    
+    getSugg(params, section);
+  });
+}
+
+/*______________________________________________________
+                        BOOK TAB
+________________________________________________________*/
+
+    
+function booksForm(){
+  $('#book-form').submit(event =>{
+    event.preventDefault();
+    console.log('books submitted');
+    const newTaste = $('#js-book-taste').val();
+    taste.books.push(newTaste);
+    
+    console.log(taste.books.join(','));
+    
+    const section = '#book-results';
+    const params = {
+      q: taste.books.join(','),
+      type: 'books',
+      info: 1,
+      limit: 5,
+      format: 'json',
+      k: key
+    };
+    
+    getSuggAlt(params, section);
+  });
+}
+
+/*______________________________________________________
+                        AUTHORS TAB
+________________________________________________________*/
+
+    
+function authorsForm(){
+  $('#author-form').submit(event =>{
+    event.preventDefault();
+    console.log('authors submitted');
+    const newTaste = $('#js-author-taste').val();
+    taste.authors.push(newTaste);
+    
+    console.log(taste.authors.join(','));
+    
+    const section = '#author-results';
+    const params = {
+      q: taste.authors.join(','),
+      type: 'authors',
+      info: 1,
+      limit: 5,
+      format: 'json',
+      k: key
+    };
+    
+    getSuggAlt(params, section);
+  });
+}
+
+/*______________________________________________________
+                        GAMES TAB
+________________________________________________________*/
+
+    
+function gamesForm(){
+  $('#game-form').submit(event =>{
+    event.preventDefault();
+    console.log('games submitted');
+    const newTaste = $('#js-game-taste').val();
+    taste.games.push(newTaste);
+    
+    console.log(taste.games.join(','));
+    
+    const section = '#game-results';
+    const params = {
+      q: taste.games.join(','),
+      type: 'games',
+      info: 1,
+      limit: 5,
+      format: 'json',
+      k: key
+    };
+    
+    getSugg(params, section);
+  });
+}
+/*______________________________________________________
+                        API Calls
 ________________________________________________________*/
 function getSugg(params, section){
   $.ajax({
@@ -105,34 +185,8 @@ function getSugg(params, section){
     }
   }); 
 }
-    
-function moviesForm(){
-  $('#movie-form').submit(event =>{
-    event.preventDefault();
-    console.log('movies submitted');
-    const newTaste = $('#js-movie-taste').val();
-    taste.movies.push(newTaste);
-    
-    console.log(taste.movies.join(','));
-    const section = '#movie-results';
-    
-    const params = {
-      q: taste.movies.join(','),
-      type: 'movies',
-      info: 1,
-      limit: 5,
-      format: 'json',
-      k: key
-    };
-    
-    getSugg(params, section);
-  });
-}
 
-/*______________________________________________________
-                        BOOK TAB
-________________________________________________________*/
-function getBooks(params){
+function getSuggAlt(params, section){
   $.ajax({
     url: baseUrl,
       
@@ -144,119 +198,9 @@ function getBooks(params){
       
     success: function(response){
       for(let i=0; i<response.Similar.Results.length; i++){
-        getCover(response.Similar.Results[i], '#book-results');
+        getCover(response.Similar.Results[i], section);
       }
     }
-  });
-}
-    
-function booksForm(){
-  $('#book-form').submit(event =>{
-    event.preventDefault();
-    console.log('books submitted');
-    const newTaste = $('#js-book-taste').val();
-    taste.books.push(newTaste);
-    
-    console.log(taste.books.join(','));
-    
-    const params = {
-      q: taste.books.join(','),
-      type: 'books',
-      info: 1,
-      limit: 5,
-      format: 'json',
-      k: key
-    };
-    
-    getBooks(params);
-  });
-}
-
-/*______________________________________________________
-                        AUTHORS TAB
-________________________________________________________*/
-function getAuthors(params){
-  $.ajax({
-    url: baseUrl,
-      
-    jsonp: 'callback',
-      
-    dataType: 'jsonp',
-      
-    data: params,
-      
-    success: function(response){
-      console.log(response);
-      for(let i=0; i<response.Similar.Results.length; i++){
-        getCover(response.Similar.Results[i], '#author-results');
-      }
-    }
-  });
-        
-}
-    
-function authorsForm(){
-  $('#author-form').submit(event =>{
-    event.preventDefault();
-    console.log('authors submitted');
-    const newTaste = $('#js-author-taste').val();
-    taste.authors.push(newTaste);
-    
-    console.log(taste.authors.join(','));
-    
-    const params = {
-      q: taste.authors.join(','),
-      type: 'authors',
-      info: 1,
-      limit: 5,
-      format: 'json',
-      k: key
-    };
-    
-    getAuthors(params);
-  });
-}
-
-/*______________________________________________________
-                        GAMES TAB
-________________________________________________________*/
-function getGames(params){
-  $.ajax({
-    url: baseUrl,
-      
-    jsonp: 'callback',
-      
-    dataType: 'jsonp',
-      
-    data: params,
-      
-    success: function(response){
-      console.log(response);
-      populate(response, '#game-results');
-    }
-  });
-        
-}
-    
-function gamesForm(){
-  $('#game-form').submit(event =>{
-    event.preventDefault();
-    console.log('games submitted');
-    const newTaste = $('#js-game-taste').val();
-    taste.games.push(newTaste);
-    
-    console.log(taste.games.join(','));
-    
-    const params = {
-      q: taste.games.join(','),
-      type: 'games',
-      info: 1,
-      limit: 5,
-      format: 'json',
-      k: key
-    };
-    
-    getGames(params);
   });
 }
 /*______________________________________________________
@@ -266,7 +210,7 @@ function populate(response, section){
   $(section).empty();
   if(!response.Similar.Results.length){
     $(section).append('<h1>No results found</h1>');
-    
+
   }
   else for(let i=0; i<response.Similar.Results.length; i++){
     $(section).append(generateHTML(response.Similar.Results[i]));
@@ -282,21 +226,6 @@ function generateHTML(item){
   console.log(itemHTML);
   return itemHTML;
 }
-
-function populateAlt(response, section){
-  for(let i=0; i<response.Similar.Results.length; i++){
-    $(section).append(getCover(response.Similar.Results[i]));
-  }
-}
-
-// function generateHTMLAlt(item){
-//   const cover = getCover(item.Name);
-//   console.log(cover);
-//   const itemHTML = `<h2>${item.Name}</h2>
-//   <img alt="${item.Name}" src="${cover}"></ br>
-//   <p>${item.wTeaser}</p>`;
-//   return itemHTML;
-// }
 
 
 function formatQueryParams(params){
@@ -319,7 +248,7 @@ function getCover(item, section){
   const queryString = formatQueryParams(params);
   const url = 'https://www.googleapis.com/customsearch/v1?' + queryString;
 
-  //console.log(url);
+  
 
 
   return fetch(url)
