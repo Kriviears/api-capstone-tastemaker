@@ -10,11 +10,9 @@ ________________________________________________________*/
 function musicForm(){
   $('#music-form').submit(event =>{
     event.preventDefault();
-    console.log('music submitted');
     const newTaste = $('#js-music-taste').val();
     taste.music.push(newTaste);
 
-    console.log(taste.music.join(','));
 
     const section = '#music-results';
     const params = {
@@ -36,11 +34,9 @@ ________________________________________________________*/
 function showsForm(){
   $('#show-form').submit(event =>{
     event.preventDefault();
-    console.log('shows submitted');
     const newTaste = $('#js-show-taste').val();
     taste.shows.push(newTaste);
   
-    console.log(taste.shows.join(','));
   
     const section = '#show-results';
     const params = {
@@ -63,11 +59,9 @@ ________________________________________________________*/
 function moviesForm(){
   $('#movie-form').submit(event =>{
     event.preventDefault();
-    console.log('movies submitted');
     const newTaste = $('#js-movie-taste').val();
     taste.movies.push(newTaste);
     
-    console.log(taste.movies.join(','));
 
     const section = '#movie-results';
     const params = {
@@ -91,11 +85,9 @@ ________________________________________________________*/
 function booksForm(){
   $('#book-form').submit(event =>{
     event.preventDefault();
-    console.log('books submitted');
     const newTaste = $('#js-book-taste').val();
     taste.books.push(newTaste);
     
-    console.log(taste.books.join(','));
     
     const section = '#book-results';
     const params = {
@@ -119,11 +111,9 @@ ________________________________________________________*/
 function authorsForm(){
   $('#author-form').submit(event =>{
     event.preventDefault();
-    console.log('authors submitted');
     const newTaste = $('#js-author-taste').val();
     taste.authors.push(newTaste);
     
-    console.log(taste.authors.join(','));
     
     const section = '#author-results';
     const params = {
@@ -147,11 +137,9 @@ ________________________________________________________*/
 function gamesForm(){
   $('#game-form').submit(event =>{
     event.preventDefault();
-    console.log('games submitted');
     const newTaste = $('#js-game-taste').val();
     taste.games.push(newTaste);
     
-    console.log(taste.games.join(','));
     
     const section = '#game-results';
     const params = {
@@ -180,7 +168,6 @@ function getSugg(params, section){
     data: params,
       
     success: function(response){
-      console.log(response);
       populate(response, section);
     }
   }); 
@@ -233,7 +220,7 @@ function getCover(item, section){
       $(section).append(webItem);
     })
     .catch(err => {
-      console.log(err.message);
+      $(section).empty.append(err.message);
     });
 }
 /*______________________________________________________
@@ -256,7 +243,6 @@ function generateHTML(item){
         src="${item.yUrl}">
     </iframe></ br>
     <p>${item.wTeaser}</p></div>`;
-  console.log(itemHTML);
   return itemHTML;
 }
 
@@ -276,19 +262,16 @@ _______________________________________________________ */
 
 function navigate(){
   $('.menu').on('click', 'li', function(event){
-    console.log('\'navigate\' ran');
   
     var tab = event.currentTarget;
     $('ul.menu').find('li.current').removeClass('current');
     $(tab).addClass('current');
     $('.menu').removeClass('active');
-    //console.log(tab);
   });
 }
 
 function menuToggle(){
   $('#hamburger').on('click', function(event){
-    console.log('menu toggled');
     event.preventDefault();
     $('.menu').toggleClass('active', { direction: 'left' }, 1000);
   });
