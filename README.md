@@ -25,14 +25,14 @@ Quick and easy way to stay in the loop of things you might like
 
 Encounter a login page (login functionality coming soon) so that the app can remember who you are and what you like
 
-![login Page](images/login.JPG)
+![login Page](https://github.com/Kriviears/tastemaker-app/blob/master/images/login.JPG?raw=true)
 
 Click on a tab to sort by type of media
 
-![tab](images/tab.JPG)
+![tab](https://github.com/Kriviears/tastemaker-app/blob/master/images/tab.JPG?raw=true)
 
 Type something you like and recieve feedback
 
-![feedback](images/feedback.JPG)
+![feedback](https://github.com/Kriviears/tastemaker-app/blob/master/images/feedback.JPG?raw=true)
 
 You can add more to your tastes here or proceed to another tab and utilize the app for other things
