@@ -220,7 +220,7 @@ function getCover(item, section){
       $(section).append(webItem);
     })
     .catch(err => {
-      $(section).empty.append(err.message);
+      $(section).empty().append(err.message);
     });
 }
 /*______________________________________________________
