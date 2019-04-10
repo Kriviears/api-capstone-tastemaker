@@ -19,7 +19,7 @@ Quick and easy way to stay in the loop of things you might like
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-```
+
 
 ## Walkthrough
 
