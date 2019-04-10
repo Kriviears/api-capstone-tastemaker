@@ -39,3 +39,7 @@ You can add more to your tastes here or proceed to another tab and utilize the a
 
 ### Demo
 [Live Demo](https://kriviears.github.io/tastemaker-app/)
+
+### APIS used
+[QLOO API](https://qloo.com/api-info/)
+[Custom google search API](https://developers.google.com/custom-search/v1/overview)
