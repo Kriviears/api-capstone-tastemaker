@@ -203,6 +203,39 @@ function getSuggAlt(params, section){
     }
   });
 }
+
+function getCover(item, section){
+  const params = {
+    cx: '011351822505368343680:lpxwsruoxny',
+    key: 'AIzaSyAM35hc9FInCfrhcbkIqrkEFGM5YnzYUYU',
+    q: `${item.Name} book`,
+    prettyPrint: true,
+    searchType: 'image',
+    num: 1
+  };
+  const queryString = formatQueryParams(params);
+  const url = 'https://www.googleapis.com/customsearch/v1?' + queryString;
+
+  return fetch(url)
+    .then(response => {
+      if(response.ok) return response.json();
+      else throw new Error(response.statusText);
+    })
+    .then(data => {
+      let cover = data.items[0].image.thumbnailLink;
+
+      const itemHTML = `<div class="sugg"><h2>${item.Name}</h2>
+        <img alt="${item.Name}" src="${cover}"></ br>
+        <p>${item.wTeaser}</p></div>`;
+      return itemHTML;
+    })
+    .then(webItem => {
+      $(section).append(webItem);
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
+}
 /*______________________________________________________
                         HTML GENERATION
 ________________________________________________________*/
@@ -236,44 +269,10 @@ function formatQueryParams(params){
 
 
 
-function getCover(item, section){
-  const params = {
-    cx: '011351822505368343680:lpxwsruoxny',
-    key: 'AIzaSyAM35hc9FInCfrhcbkIqrkEFGM5YnzYUYU',
-    q: `${item.Name} book`,
-    prettyPrint: true,
-    searchType: 'image',
-    num: 1
-  };
-  const queryString = formatQueryParams(params);
-  const url = 'https://www.googleapis.com/customsearch/v1?' + queryString;
 
-  
-
-
-  return fetch(url)
-    .then(response => {
-      if(response.ok) return response.json();
-      else throw new Error(response.statusText);
-    })
-    .then(data => {
-      let cover = data.items[0].image.thumbnailLink;
-
-      const itemHTML = `<div class="sugg"><h2>${item.Name}</h2>
-        <img alt="${item.Name}" src="${cover}"></ br>
-        <p>${item.wTeaser}</p></div>`;
-      return itemHTML;
-    })
-    .then(webItem => {
-      $(section).append(webItem);
-    })
-    .catch(err => {
-      console.log(err.message);
-    });
-}
-
-
-/*_______________________________________________________ */
+/*_______________________________________________________ 
+                User interaction
+_______________________________________________________ */
 
 function navigate(){
   $('.menu').on('click', 'li', function(event){
