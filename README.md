@@ -1,15 +1,10 @@
-## Welcome to GitHub Pages
+## Taste Maker App
 
-You can use the [editor on GitHub](https://github.com/Kriviears/api-hack-capstone/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Able to reccomend to you new things based off of your interests
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Usefullness
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
+Quick and easy way to stay in the loop of things you might like
 
 # Header 1
 ## Header 2
@@ -26,12 +21,18 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Walkthrough
 
-### Jekyll Themes
+Encounter a login page (login functionality coming soon) so that the app can remember who you are and what you like
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Kriviears/api-hack-capstone/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![login Page](images/login.JPG)
 
-### Support or Contact
+Click on a tab to sort by type of media
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+![tab](images/tab.JPG)
+
+Type something you like and recieve feedback
+
+![feedback](images/feedback.JPG)
+
+You can add more to your tastes here or proceed to another tab and utilize the app for other things
