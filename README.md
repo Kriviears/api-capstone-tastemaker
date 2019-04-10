@@ -36,3 +36,6 @@ Type something you like and recieve feedback
 ![feedback](https://github.com/Kriviears/tastemaker-app/blob/master/images/feedback.JPG?raw=true)
 
 You can add more to your tastes here or proceed to another tab and utilize the app for other things
+
+### Demo
+[Live Demo](https://kriviears.github.io/tastemaker-app/)
